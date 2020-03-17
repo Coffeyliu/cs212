@@ -18,14 +18,6 @@
 # Liskov, Perlis, and Ritchie.
 
 import itertools
-def higherthan(floor1, floor2):
-    """If floor1 is highter than floor2, then floor1 > floor2"""
-    return floor1 - floor2 > 0
-
-def adjancentto(floor1, floor2):
-    """if floor1 and floor2 adjancent to each other, return
-    floor1 - floor2 == 1 or floor2 - floor1 == 1"""
-    return floor1 - floor2 == 1 or floor2 - floor1 == 1
 
 def floor_puzzle():
     # Your code here
@@ -35,11 +27,11 @@ def floor_puzzle():
     return next([Hopper, Kay, Liskov, Perlis, Ritchie]
             for (Hopper, Kay, Liskov, Perlis, Ritchie) in orderings
             if Hopper is not 5   #1
-            if Kay is not 1 #2
-            if Liskov is not 1 and Liskov is not 5 #3
-            if higherthan(Perlis, Kay) #4
-            if not adjancentto(Ritchie, Liskov)  #5
-            if not adjancentto(Liskov, Kay)  #6
+            and Kay is not 1 #2
+            and Liskov is not 1 and Liskov is not 5 #3
+            and Perlis > Kay #4
+            and abs(Ritchie - Liskov) != 1 #5
+            and abs(Liskov - Kay) != 1  #6
             ) 
 
 print(floor_puzzle())
