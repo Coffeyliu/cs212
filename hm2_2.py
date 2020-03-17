@@ -22,6 +22,10 @@ import itertools
 def floor_puzzle():
     # Your code here
     floors = [1, 2, 3, 4, 5]
+    # FB: so what is the point of collecting that iterator into a list
+    # just to iterate later on through it? This is not only a waste of both CPU
+    # and memory (you never need to realize that list into memory), it is first
+    # rather an odd usage for generators/iterators: why bother with them at all?
     orderings = list(itertools.permutations(floors))
 
     return next([Hopper, Kay, Liskov, Perlis, Ritchie]
