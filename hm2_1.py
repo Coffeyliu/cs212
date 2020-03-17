@@ -63,8 +63,7 @@ def faster_solve(formula):
 
 def test():
     assert faster_solve('A + B == BA') == None # should NOT return '1 + 0 == 01'
-    assert faster_solve('YOU == ME**2') == '289 == 17**2' or faster_solve('YOU == ME**2') == '576 == 24**2' or faster_solve('YOU == ME**2') == '841 == 29**2' or faster_solve('YOU == ME**2') == '324 == 18**2'
+    assert faster_solve('YOU == ME**2') in ['289 == 17**2', '576 == 24**2', '841 == 29**2', '324 == 18**2']
     assert faster_solve('X / X == X') == '1 / 1 == 1'
     return 'tests pass'
 print(test())
-
