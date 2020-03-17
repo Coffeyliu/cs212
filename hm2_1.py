@@ -8,15 +8,8 @@
 #===========================
 #NOTE: 
 # 1. change string.maketrans() to str.makertrans
-#NOTE 2:
-###?????Question???#######
-# The code passed the tests online, but not here. The second 
-# assertion in test can be passed around 1/4 chances. I don't   
-# understand, is that the test not created in a good way or
-# something else...? Please advice, Florin. Thanks!
+# 2. correct test() for second assertion
 #===========================
-
-
 
 import re
 import itertools
@@ -70,12 +63,8 @@ def faster_solve(formula):
 
 def test():
     assert faster_solve('A + B == BA') == None # should NOT return '1 + 0 == 01'
-    assert faster_solve('YOU == ME**2') == ('289 == 17**2' or '576 == 24**2' or '841 == 29**2')
+    assert faster_solve('YOU == ME**2') == '289 == 17**2' or faster_solve('YOU == ME**2') == '576 == 24**2' or faster_solve('YOU == ME**2') == '841 == 29**2' or faster_solve('YOU == ME**2') == '324 == 18**2'
     assert faster_solve('X / X == X') == '1 / 1 == 1'
     return 'tests pass'
 print(test())
 
-# res = faster_solve('YOU == ME**2')
-# print(res)
-# assert res == ('289 == 17**2' or '576 == 24**2' or '841 == 29**2' or '324 == 18**2')
-# print('ok')
